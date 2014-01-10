@@ -4,5 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
+    @session = Session.new(params[:session])
+    if @session.valid?
+      login @session.user_id
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 end
