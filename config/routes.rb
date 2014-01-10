@@ -3,5 +3,6 @@ Soleil::Application.routes.draw do
 
   get 'signin' => 'sessions#new', as: :new_signin
   post 'signin' => 'sessions#create'
+  get 'home' => 'home#index'
   resources :users, only: [ :new, :create ]
 end
