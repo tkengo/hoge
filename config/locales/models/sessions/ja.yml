@@ -1,0 +1,11 @@
+ja:
+  activemodel:
+    errors:
+      messages:
+        invalid_login: メールアドレスまたはパスワードが違います。
+    models:
+      session: ログインセッション
+    attributes:
+      session:
+        email: メールアドレス
+        password: パスワード
