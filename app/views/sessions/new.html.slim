@@ -1,4 +1,5 @@
 = form_for @session, url: signin_path do |f|
+  = render partial: 'application/errors', locals: { target: @session }
   = f.label :email
   = f.text_field :email
   br
