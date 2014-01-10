@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    errors: &errors
+      messages:
+        blank: "%{attribute}を入力してください。"
+        too_long: "%{attribute}は%{count}文字以内で入力してください。"
+        invalid: "%{attribute}に無効な文字が含まれています。"
+  activemodel:
+    errors:
+      <<: *errors
