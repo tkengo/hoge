@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def login(user_id)
     session[:login_user_id] = user_id
+    @cached_logged_in_user = nil
   end
 
   def logout
@@ -18,6 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    logged_in? ? User.find(session[:login_user_id]) : nil
+    if logged_in?
+      return @cached_logged_in_user if @cached_logged_in_user
+      @cached_logged_in_user = User.find(session[:login_user_id])
+    else
+      nil
+    end
   end
 end
