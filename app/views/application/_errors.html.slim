@@ -1,0 +1,4 @@
+- if target.errors.any?
+  ul
+    - target.errors.messages.values.flatten.each do |message|
+      li = message
