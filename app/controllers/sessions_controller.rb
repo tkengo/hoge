@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @session = Session.new(params[:session])
     if @session.valid?
       login @session.user_id
-      redirect_to root_path
+      redirect_to home_path
     else
       render :new
     end
