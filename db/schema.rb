@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20140110140139) do
 
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.integer  "deleted",    default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password"

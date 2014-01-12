@@ -7,5 +7,11 @@ class InitializeTables < ActiveRecord::Migration
       t.column :deleted, :tinyint, default: 0
       t.timestamps
     end
+
+    create_table :projects do |t|
+      t.string :name
+      t.column :deleted, :tinyint, default: 0
+      t.timestamps
+    end
   end
 end
