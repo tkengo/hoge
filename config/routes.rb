@@ -5,4 +5,7 @@ Soleil::Application.routes.draw do
   post 'signin' => 'sessions#create'
   get 'home' => 'home#index'
   resources :users, only: [ :new, :create ]
+
+  get '/:identifier/home' => 'projects#show'
+  resources :projects, only: [ :new, :create ]
 end
