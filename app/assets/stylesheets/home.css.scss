@@ -1,0 +1,77 @@
+@import 'variables.css.scss';
+
+.header {
+  background-color: #645f8b;
+  height: 30px;
+  color: #fff;
+
+  .header-title {
+    font-size: 18px;
+    float: left;
+  }
+
+  .header-menu {
+    float: right;
+    margin: 0 8px 0 0;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+      color: $baseFontColor;
+    }
+  }
+}
+
+ul.project-list {
+  position: absolute;
+
+  li {
+  }
+}
+
+.task-list {
+  margin: 10px;
+
+  .task-list-header-area {
+    padding: 8px;
+
+    .project-name {
+      font-size: 20px;
+    }
+  }
+
+  .task-list-menu {
+    height: 30px;
+    background-color: #e3e3e3;
+  }
+
+  ul.task-list-items {
+    li {
+      height: 24px;
+      line-height: 24px;
+      border-bottom: solid 1px #e3e3e3;
+      padding: 6px 0 0 0;
+
+      .task-item {
+        float: left;
+        margin: 0 6px 0 6px;
+      }
+
+      .task-asignee {
+        width: 24px;
+      }
+      .task-completed-check {
+        border: solid 1px #e3e3e3;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+      }
+      .task-tags {
+        float: right;
+      }
+    }
+  }
+}
