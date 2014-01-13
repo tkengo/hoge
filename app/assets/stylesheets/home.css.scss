@@ -1,3 +1,4 @@
+@import 'mixins/all.css.scss';
 @import 'variables.css.scss';
 
 .header {
@@ -11,10 +12,9 @@
   }
 
   .header-menu {
+    @include text-height(30px);
     float: right;
     margin: 0 8px 0 0;
-    height: 30px;
-    line-height: 30px;
     padding: 0 10px;
 
     &:hover {
@@ -27,8 +27,30 @@
 
 ul.project-list {
   position: absolute;
+  width: 200px;
+  left: 400px;
 
   li {
+    border-top: solid 1px #ccc;
+
+    &:hover {
+      border-top: solid 1px #aaa;
+    }
+
+    a {
+      @include text-height(26px);
+      background-color: #fff;
+      border-left: solid 5px #e3e3e3;
+      padding-left: 8px;
+      display: block;
+    }
+    a:hover {
+      background-color: #eee;
+      border-left: solid 5px #5d639e;
+    }
+    &.active-project a {
+      border-left: solid 5px #444 !important;
+    }
   }
 }
 
@@ -50,8 +72,7 @@ ul.project-list {
 
   ul.task-list-items {
     li {
-      height: 24px;
-      line-height: 24px;
+      @include text-height(24px);
       border-bottom: solid 1px #e3e3e3;
       padding: 6px 0 0 0;
 
@@ -64,9 +85,8 @@ ul.project-list {
         width: 24px;
       }
       .task-completed-check {
+        @include box(16px, 16px);
         border: solid 1px #e3e3e3;
-        width: 16px;
-        height: 16px;
         border-radius: 3px;
       }
       .task-tags {

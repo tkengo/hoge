@@ -1,0 +1,9 @@
+@mixin text-height($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin box($width, $height) {
+  width: $width;
+  height: $height;
+}
