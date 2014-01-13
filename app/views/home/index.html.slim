@@ -3,12 +3,11 @@
   .header-menu Project
 
 ul.box.project-list
-  li
-    a href="#" Project1
-  li.active-project
-    a href="#" Project2
-  li
-    a href="#" Project3
+  li.exists-project = link_to 'Project1', '#'
+  li.exists-project.active-project = link_to 'Project2', '#'
+  li.exists-project = link_to 'Project3', '#'
+  li.new-project
+    = link_to (image_tag 'plus.png', alt: 'New Project', width: 16) + 'New Project', '#'
 
 .box.task-list
   .task-list-header-area

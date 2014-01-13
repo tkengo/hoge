@@ -30,26 +30,50 @@ ul.project-list {
   width: 200px;
   left: 400px;
 
+  li       { border-top: solid 1px #ccc; }
+  li:hover { border-top: solid 1px #aaa; }
+
   li {
-    border-top: solid 1px #ccc;
-
-    &:hover {
-      border-top: solid 1px #aaa;
-    }
-
-    a {
+    &, a {
       @include text-height(26px);
-      background-color: #fff;
-      border-left: solid 5px #e3e3e3;
-      padding-left: 8px;
       display: block;
     }
-    a:hover {
-      background-color: #eee;
-      border-left: solid 5px #5d639e;
+
+    &.exists-project {
+      a {
+        background-color: #fff;
+        border-left: solid 5px #e3e3e3;
+        padding-left: 8px;
+
+        &:hover {
+          background-color: #eee;
+          border-left: solid 5px #5d639e;
+          color: #202e97;
+        }
+      }
     }
-    &.active-project a {
-      border-left: solid 5px #444 !important;
+
+    &.active-project {
+      a {
+        border-left: solid 5px #444 !important;
+      }
+    }
+
+    &.new-project {
+      border-top: solid 2px #e3e3e3;
+
+      a {
+        font-weight: bold;
+
+        &:hover {
+          background-color: #eee;
+        }
+      }
+
+      img {
+        float: left;
+        margin: 5px 5px 0 3px;
+      }
     }
   }
 }
