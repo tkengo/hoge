@@ -26,8 +26,11 @@
 }
 
 ul.project-list {
+  $listWidth: 200px;
+  $rowHeight: 26px;
+
   position: absolute;
-  width: 200px;
+  width: $listWidth;
   left: 400px;
 
   li       { border-top: solid 1px #ccc; }
@@ -35,7 +38,7 @@ ul.project-list {
 
   li {
     &, a {
-      @include text-height(26px);
+      @include text-height($rowHeight);
       display: block;
     }
 
@@ -62,12 +65,18 @@ ul.project-list {
     &.new-project {
       border-top: solid 2px #e3e3e3;
 
-      a {
-        font-weight: bold;
+      .new-project-name {
+        @include box($listWidth - $textfieldPadding, $rowHeight);
+      }
 
-        &:hover {
-          background-color: #eee;
-        }
+      .new-project-text {
+        @include text-height($rowHeight);
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: #eee;
       }
 
       img {

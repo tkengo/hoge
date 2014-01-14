@@ -37,6 +37,10 @@ a {
   color: $baseFontColor;
 }
 
+input[type="text"] {
+  padding-left: $textfieldPadding;
+}
+
 .absolute {
   position: absolute;
 }

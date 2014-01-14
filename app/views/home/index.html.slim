@@ -7,7 +7,10 @@ ul.box.project-list#project-list
   li.exists-project.active-project = link_to 'Project2', '#'
   li.exists-project = link_to 'Project3', '#'
   li.new-project#new-project
-    = link_to (image_tag 'plus.png', alt: 'New Project', width: 16) + 'New Project', '#'
+    .js-text-area.new-project-text
+      = image_tag('plus.png', alt: 'New Project', width: 16) + 'New Project'
+    .js-form-area.hidden
+      = text_field 'project', 'name', id: 'new-project-name', class: 'new-project-name'
 
 .box.task-list
   .task-list-header-area
