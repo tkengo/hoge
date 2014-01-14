@@ -1,4 +1,4 @@
-var ProjectListView = Backbone.View.extend({
+Soleil.ProjectListView = Backbone.View.extend({
   events: {
     'click #new-project': 'showNewProjectForm',
     'blur #new-project-name': 'hideNewProjectForm',
@@ -20,5 +20,5 @@ var ProjectListView = Backbone.View.extend({
 });
 
 $(document).ready(function() {
-  new ProjectListView({ el: $('#project-list') });
+  new Soleil.ProjectListView({ el: $('#project-list') });
 });
