@@ -16,8 +16,12 @@ Soleil.ProjectListView = Backbone.View.extend({
   createProject: function(e) {
     var projectName = $('#new-project-name').val();
     if (e.keyCode == 13 && projectName != '') {
-      project = new Soleil.Project();
+      var project = new Soleil.Project();
       project.save({ name: projectName });
+
+      var newProjectList = $('<li>').addClass('exists-project').text(projectName);
+      $('li.exists-project:last').after(newProjectList);
+      hideNewProjectForm();
     }
   }
 });
