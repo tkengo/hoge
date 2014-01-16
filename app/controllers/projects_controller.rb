@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+  def index
+    @projects = Project.where(user_id: current_user.id)
+    render json: @projects
+  end
+
   def create
     @project = current_user.projects.create(project_params)
     if @project.save
