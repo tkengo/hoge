@@ -4,6 +4,21 @@ Soleil.ProjectListView = Backbone.View.extend({
     'blur #new-project-name': 'hideNewProjectForm',
     'keyup #new-project-name': 'createProject'
   },
+  initialize: function() {
+    _.bindAll(this, 'render');
+
+    this.collection.bind('add', this.render);
+    this.collection.fetch({ success: this.render });
+  },
+  render: function() {
+    $('li.exists-project', this.$el).remove();
+    this.collection.each(function(project) {
+      var li = $('<li>').addClass('exists-project');
+      var link = $('<a>').attr('href', '#').text(project.get('name'));
+
+      $('#new-project').before(li.append(link));
+    }, this);
+  },
   showNewProjectForm: function() {
     $('.js-text-area').hide();
     $('.js-form-area').show();
@@ -19,13 +34,12 @@ Soleil.ProjectListView = Backbone.View.extend({
       var project = new Soleil.Project();
       project.save({ name: projectName });
 
-      var newProjectList = $('<li>').addClass('exists-project').text(projectName);
-      $('li.exists-project:last').after(newProjectList);
-      hideNewProjectForm();
+      this.collection.add(project);
     }
   }
 });
 
 $(document).ready(function() {
-  new Soleil.ProjectListView({ el: $('#project-list') });
+  var projectList = new Soleil.ProjectList();
+  new Soleil.ProjectListView({ el: $('#project-list'), collection: projectList });
 });
