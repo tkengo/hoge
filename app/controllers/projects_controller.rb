@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def create
-    @project = Project.create(project_params)
+    @project = current_user.projects.create(project_params)
     if @project.save
       render json: { success: true }
     else
